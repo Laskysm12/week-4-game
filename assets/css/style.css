@@ -1,0 +1,18 @@
+.crystals {
+    display: flex;
+    justify-content: space-between;
+}
+.crystal-image {
+    width: 100px;
+    height: 100px;
+}
+
+#numbercount {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#blank {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
