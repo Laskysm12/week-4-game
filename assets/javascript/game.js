@@ -11,10 +11,14 @@ function randomNumberGenerator(count) {
 
 $("#number-to-guess").text(targetNumber);
 
+$("js-wins").text(wins);
+$("js-losses").text(losses);
 
+
+// Creating variables to hold the number of wins, losses, and the user score count
 var counter = 0;
-
-$("#js-score").text(counter);
+var wins = 0;
+var losses = 0;
 
 // Now for the hard part. Creating multiple crystals each with their own unique number value.
 
@@ -64,15 +68,17 @@ $('body').on("click", ".crystal-image", function() {
   // Every click, from every crystal adds to the global counter.
   counter += crystalValue;
 
+  $(".js-score").text(counter);
+
   // All of the same game win-lose logic applies. So the rest remains unchanged.
-  alert("New score: " + counter);
+//   alert("New score: " + counter);
 
   if (counter === targetNumber) {
-    alert("You win!");
+    wins++;
   }
 
   else if (counter >= targetNumber) {
-    alert("You lose!!");
+    losses++;
   }
 
 });
