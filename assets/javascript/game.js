@@ -17,14 +17,19 @@ var counter = 0;
 var wins = 0;
 var losses = 0;
 
-// Now for the hard part. Creating multiple crystals each with their own unique number value.
+// Reset game function
+function resetGame() {
+    targetNumber = randomNumberGenerator(1)
+    numberOptions = generateRandomNumberArray(4)
+    counter = 0;
+}
 
-// We begin by expanding our array to include four options.
+resetGame();
+
 // Called the random number array by setting it equal to the variable numberOptions (and closing the array with ())
 var numberOptions = generateRandomNumberArray(4)
 
 // Write a function that generates an array with 4 random values - then every time you have a new game
-// Will need to make a new function similar to generateRandomArray for the target number!!! 
 
 function generateRandomNumberArray(count) {
     var array = [];
@@ -69,10 +74,12 @@ for (var i = 0; i < numberOptions.length; i++) {
 
   if (counter === targetNumber) {
     wins++;
+    resetGame();
   }
 
   else if (counter >= targetNumber) {
     losses++;
+    resetGame();
   }
 
   $(".js-wins").text(wins);
