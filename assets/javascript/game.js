@@ -3,16 +3,13 @@ var targetNumber = randomNumberGenerator(1)
 function randomNumberGenerator(count) {
     var targetArray = [];
     for (var j = 0; j < count; j++) {
-        var random = Math.floor(Math.random() * 10) + 100;
+        var random = Math.floor(Math.random() * 10) + 70;
         targetArray.push(random)
     }
     return targetArray;
 }
 
 $("#number-to-guess").text(targetNumber);
-
-$("js-wins").text(wins);
-$("js-losses").text(losses);
 
 
 // Creating variables to hold the number of wins, losses, and the user score count
@@ -55,23 +52,20 @@ for (var i = 0; i < numberOptions.length; i++) {
   crystals.append(imageCrystal);
 }
 
-// This time, our click event applies to every single crystal on the page. Not just one.
-$('body').on("click", ".crystal-image", function() {
-  // Determining the crystal's value requires us to extract the value from the data attribute.
-  // Using the $(this) keyword specifies that we should be extracting the crystal value of the clicked crystal.
-  // Using the .attr("data-crystalvalue") allows us to grab the value out of the "data-crystalvalue" attribute.
-  // Since attributes on HTML elements are strings, we must convert it to an integer before adding to the counter
+  // This time, our click event applies to every single crystal on the page. Not just one.
+  $('body').on("click", ".crystal-image", function() {
 
   var crystalValue = ($(this).attr("data-crystalvalue"));
   crystalValue = parseInt(crystalValue);
-  // We then add the crystalValue to the user's "counter" which is a global variable.
-  // Every click, from every crystal adds to the global counter.
+
+  // Adding the crystalValue to the user's counter.
+  // Every click, from every crystal adds to this counter.
   counter += crystalValue;
 
   $(".js-score").text(counter);
 
-  // All of the same game win-lose logic applies. So the rest remains unchanged.
-//   alert("New score: " + counter);
+  
+  // Here is the game logic
 
   if (counter === targetNumber) {
     wins++;
@@ -80,5 +74,8 @@ $('body').on("click", ".crystal-image", function() {
   else if (counter >= targetNumber) {
     losses++;
   }
+
+  $(".js-wins").text(wins);
+  $(".js-losses").text(losses);
 
 });
