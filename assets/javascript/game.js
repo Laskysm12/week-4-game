@@ -75,6 +75,7 @@ for (var i = 0; i < numberOptions.length; i++) {
   if (counter === targetNumber) {
     wins++;
     resetGame();
+    alert("You Won!");
   }
 
   else if (counter >= targetNumber) {
