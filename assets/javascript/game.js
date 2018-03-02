@@ -1,9 +1,20 @@
-var targetNumber = 53;
+var targetNumber = randomNumberGenerator(1)
+
+function randomNumberGenerator(count) {
+    var targetArray = [];
+    for (var j = 0; j < count; j++) {
+        var random = Math.floor(Math.random() * 10) + 100;
+        targetArray.push(random)
+    }
+    return targetArray;
+}
 
 $("#number-to-guess").text(targetNumber);
 
 
 var counter = 0;
+
+$("#js-score").text(counter);
 
 // Now for the hard part. Creating multiple crystals each with their own unique number value.
 
