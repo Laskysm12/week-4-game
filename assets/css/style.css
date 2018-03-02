@@ -2,8 +2,19 @@
 .container {
     background-color: paleturquoise;
     color: darkblue;
+    font-family: 'Indie Flower', cursive;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
 }
 
+.col-lg-6 h1 {
+    font-weight: bold;
+}
+
+.col-lg-6 h3 {
+    font-weight: bold;
+}
 
 .crystals {
     display: flex;
